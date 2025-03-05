@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
-    const themeToggle = document.getElementByID('theme-toggle');
+    const themeToggle = document.getElementById('theme-toggle');
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-btn');
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalImage = document.getElementById('modal-image');
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
-    const closeModal = document.querySelector('close-modal');
+    const closeModal = document.querySelector('.close-modal');
     
     // Event listeners
     themeToggle.addEventListener('change', toggleTheme);
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close modal on outside click
     modalContainer.addEventListener('click', function(e) {
-        if (e.target == modalContainer) {
+        if (e.target === modalContainer) {
             closeImageModal();
         }
     });
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function filterImages(category) {
         imageCards.forEach(card => {
-            if (category === 'all' || card.dataset.category == category) {
+            if (category === 'all' || card.dataset.category === category) {
                 card.style.display = 'block';
             } else {
                 card.style.display = 'none';
@@ -67,7 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function searchImages() {
         const searchTerm = searchInput.value.toLowerCase().trim();
-        if (searchTerm == '') return;
+        // IF search is blank display all images
+        if (searchTerm === ''){
+            imageCards.forEach(card => card.style.display = 'block')
+            return
+        }
         
         imageCards.forEach(card => {
             const title = card.querySelector('h3').innerText.toLowerCase();
@@ -98,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalContainer.classList.remove('hidden');
         
         // Prevent body scrolling when modal is open
-        document.body.style.overflow = hidden;
+        document.body.style.overflow = 'hidden';
     }
     
     function closeImageModal() {
@@ -122,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 localStorage.setItem('theme', 'light');
             }
-        })
+        });
     }
     
     init();
