@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery | Debug Practice</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+<body>
+    <header class="main-header">
+        <h1>Image Gallery</h1>
+        <div class="controls">
+            <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle" class="toggle-label">
+                    <span class="toggle-icon"></span>
+                </label>
+                <span class="theme-label">Dark Mode<span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search images..."></input>
+                <button id="search-btn">Search</button>
+            </div>
+        </header>
+    </div>
+    
+    <main>
+        <section class="filter-section">
+            <h2>Filter by Category</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="nature">Nature</button>
+                <button class="filter-btn" data-category="architecture">Architecture</button>
+                <button class="filter-btn" data-category="animals">Animals</button>
+                <button class="filter-btn" data-category=food>Food</button>
+            </div>
+        </section>
+        
+        <section class="gallery-container">
+            <div class="gallery" id="gallery">
+                <!-- Images will be loaded dynamically by JavaScript -->
+                <div class="image-card" data-category="nature">
+                    <img src="https://source.unsplash.com/random/300x200?nature,mountains" alt="Mountain landscape">
+                    <div class="image-info">
+                        <h3>Mountain View</h3>
+                        <p>Beautiful mountain landscape view at sunset</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" data-category="nature">
+                    <img src="https://source.unsplash.com/random/300x200?nature,lake" alt="Lake view">
+                    <div class="image-info">
+                        <h3>Calm Lake</h3>
+                        <p>Peaceful lake surrounded by trees</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" data-category="architecture">
+                    <img src="https://source.unsplash.com/random/300x200?buildings" alt="Modern building">
+                    <div class="image-info">
+                        <h3>Modern Architecture</h3>
+                        <p>Contemporary building with unique design</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" data-category="architecture">
+                    <img src="https://source.unsplash.com/random/300x200?city" alt="City skyline">
+                    <div class="image-info">
+                        <h3>City Skyline</h3>
+                        <p>Urban landscape with tall skyscrapers</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" data-category="animals">
+                    <img src="https://source.unsplash.com/random/300x200?cat" alt="Cat">
+                    <div class="image-info">
+                        <h3>Curious Cat</h3>
+                        <p>Adorable cat with expressive eyes</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" data-category="animals">
+                    <img src="https://source.unsplash.com/random/300x200?dog" alt="Dog">
+                    <div class="image-info">
+                        <h3>Playful Dog</h3>
+                        <p>Happy dog enjoying outdoors</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" data-category="food">
+                    <img src="https://source.unsplash.com/random/300x200?pasta" alt="Pasta dish">
+                    <div class="image-info">
+                        <h3>Italian Pasta</h3>
+                        <p>Delicious pasta with tomato sauce</p>
+                    </div>
+                </div>
+                
+                <div class="image-card" data-category="food">
+                    <img src="https://source.unsplash.com/random/300x200?dessert" alt="Dessert">
+                    <div class="image-info">
+                        <h3>Sweet Dessert</h3>
+                        <p>Mouth-watering chocolate dessert</p>
+                    </div>
+                <div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-container hidden" id="image-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img src="" alt="" id="modal-image">
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Image Gallery | Debug Practice</p>
+    </footer>
+</html>
